@@ -45,13 +45,16 @@ function Ayat() {
         </div>
         <div className="noto text-lg text-start pl-2 pt-1 bg-gradient-to-br from-green-50 via-amber-100 to-green-200 bg-clip-text text-transparent
         ">
-            <div className="flex justify-between">
+          
             <p>Arti : {surah.arti}</p>
-            <div className="mr-9 "><Qori setQori={setQori}/></div>
+           
+        
+            <div className="flex justify-between">
+              <div>Tempat turun : {surah.tempatTurun}</div>
+          <div className=""><Qori setQori={setQori} /></div> 
             </div>
           
-          <p>Tempat turun : {surah.tempatTurun}</p>
-        </div>
+          </div>
       </div>
 
       <div className="mt-39 space-y-4">
