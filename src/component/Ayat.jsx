@@ -32,7 +32,6 @@ function Ayat() {
   return (
     <div className="max-w-[1200px] mx-auto">
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] bg-blue-500 text-center py-2 shadow-md z-50 rounded-b-xl">
-        <h1 className="text-green-300 font-bold text-xl pb-3 ">Surah</h1>
         <div className="flex pl-2 items-center ">
           <div className="border-2 border-green-300 w-10 h-10 text-center rounded-full shadow-md">
             <p className="bg-gradient-to-br from-green-200 to-green-300 bg-clip-text text-transparent font-bold text-2xl">
@@ -47,13 +46,10 @@ function Ayat() {
         ">
           
             <p>Arti : {surah.arti}</p>
-           
-        
-            <div className="flex justify-between">
+  
               <div>Tempat turun : {surah.tempatTurun}</div>
-          <div className=""><Qori setQori={setQori} /></div> 
-            </div>
-          
+          <Qori setQori={setQori} />
+        
           </div>
       </div>
 
