@@ -33,13 +33,13 @@ function Ayat() {
     <div className="max-w-[1200px] mx-auto">
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] bg-blue-500 text-center py-2 shadow-md z-50 rounded-b-xl">
         <div className="flex pl-2 items-center ">
-          <div className="border-2 border-green-300 w-10 h-10 text-center rounded-full shadow-md">
-            <p className="bg-gradient-to-br from-green-200 to-green-300 bg-clip-text text-transparent font-bold text-2xl">
+          <div className="border-2 border-green-300 pt-2 w-12 h-12 text-center rounded-full">
+            <p className="bg-gradient-to-br from-green-200 to-green-300 bg-clip-text text-transparent font-bold text-xl">
               {surah.nomor}
             </p>
           </div>
           <h1 className="pl-2 bg-gradient-to-br from-green-200 to-green-300 bg-clip-text text-transparent text-3xl font-bold noto">
-            {surah.namaLatin}-{surah.nama}
+            {surah.namaLatin} - {surah.nama}
           </h1>
         </div>
         <div className="noto text-lg text-start pl-2 pt-1 bg-gradient-to-br from-green-50 via-amber-100 to-green-200 bg-clip-text text-transparent

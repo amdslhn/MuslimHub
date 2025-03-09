@@ -25,8 +25,8 @@ function Surah() {
   return (
     <div className="m-2 max-w-[1200px] mx-auto">
       <div className="text-3xl font-bold">
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] bg-blue-500 text-center py-4 shadow-md z-50">
-      <h1 className="text-slate-200">Daftar Surah</h1>
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px]  bg-blue-400 text-center py-4 shadow-md z-50">
+      <h1 className="text-slate-900">Daftar Surah</h1>
       </div>
       </div>
       <div className="mt-10 grid grid-cols-1 gap-4 items-center shadow-md  pt-8">
