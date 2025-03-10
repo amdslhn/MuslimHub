@@ -21,7 +21,7 @@ function Home() {
         <img src="/image/Img1.png" alt="quran" />
       </div>
         
-        <div className="text-2xl text-slate-800 font-bold mx-auto">
+        <div className="text-2xl text-slate-800 font-bold mx-auto lg:-mt-20">
         <div onClick= {handleClick} className="border-1 border-green-800 p-2 w-50 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer hover:scale-105 rounded-3xl text-center shadow-xl">
           Baca Quran
         </div>
