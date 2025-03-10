@@ -14,7 +14,7 @@ function DoaHarian() {
       <div className="fixed w-full max-w-3xl text-center bg-blue-500 rounded-b-3xl z-50">
         <div className="pl-3 text-gray-200 text-3xl flex flex-row gap-3 font-bold justify-center py-4">
             <div className="-my-2">
-          <div className="border-2 w-14 h-14 pt-1.5 border-slate-100 rounded-full">
+          <div className="border-2 w-12 h-12 pt-0.5 border-slate-100 rounded-full">
             <p>{doa.id}</p>
             </div>
           </div>
