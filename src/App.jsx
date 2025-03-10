@@ -4,7 +4,8 @@ import HomePage from "./pages/HomePage"
 import Ayat from "./component/Ayat"
 import Doa from "./pages/Doa"
 import DoaHarian from "./component/doaHarian"
-import Salat from "./pages/salat"
+import Salat from "./pages/Salat"
+
 
 
 function App() {
