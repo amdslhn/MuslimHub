@@ -1,9 +1,10 @@
-import ListDoa from "../component/listDoa"
+import DoaList from "../component/DoaList"
+
 
 
 function Doa() {
     return (
-      <ListDoa/>
+        <DoaList/>
     )
 }
 

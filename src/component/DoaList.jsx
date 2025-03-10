@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function ListDoa() {
+function DoaList() {
     const[doaHarian, setDoaHarian] = useState([]);
     const navigate = useNavigate();
 
@@ -37,5 +37,4 @@ function ListDoa() {
         </div>
     )
 }
-
-export default ListDoa
+export default DoaList;
