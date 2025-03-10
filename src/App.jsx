@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage"
 import Ayat from "./component/Ayat"
 import Doa from "./pages/Doa"
 import DoaHarian from "./component/doaHarian"
+import Salat from "./pages/salat"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="surah/:nomor" element={<Ayat />} />
         <Route path="/doa" element={<Doa />} />
         <Route path="/doa/:id" element={<DoaHarian />} />
+        <Route path="/jwlsalat" element={<Salat />} />
       </Routes>
     </Router>
   )
