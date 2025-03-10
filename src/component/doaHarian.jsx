@@ -12,9 +12,11 @@ function DoaHarian() {
   return (
     <div className="w-screen min-h-screen max-w-3xl mx-auto justify-between flex flex-col bg-slate-200 sm:h-full lg:h-screen shadow-xl ">
       <div className="fixed w-full max-w-3xl text-center bg-blue-500 rounded-b-3xl z-50">
-        <div className="pl-3 text-gray-200 text-3xl flex flex-row gap-3 font-bold items-center justify-center py-4">
-          <div className="border-2 w-10 h-10 pr-0.5 border-slate-100 rounded-full">
+        <div className="pl-3 text-gray-200 text-3xl flex flex-row gap-3 font-bold justify-center py-4">
+            <div className="-my-2">
+          <div className="border-2 w-14 h-14 pt-1.5 border-slate-100 rounded-full">
             <p>{doa.id}</p>
+            </div>
           </div>
           <div>{doa.judul}</div>
         </div>
