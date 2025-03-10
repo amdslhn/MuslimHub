@@ -25,11 +25,11 @@ function Surah() {
   return (
     <div className="m-2 max-w-[1200px] mx-auto">
       <div className="text-3xl font-bold">
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px]  bg-blue-400 text-center py-4 shadow-md z-50">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] rounded-b-2xl bg-blue-400 text-center py-4 shadow-md z-50">
       <h1 className="text-slate-900">Daftar Surah</h1>
       </div>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-4 items-center shadow-md  pt-8">
+      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-4 items-center shadow-md  pt-8">
         {surah.map((surat) => (
           <div key={surat.nomor} className="w-full">
             <div onClick ={() => handleClick(surat.nomor)} className="hover:cursor-pointer hover:scale-105 border-1 bg-slate-100 border-sky-600 rounded-2xl">
@@ -49,3 +49,9 @@ function Surah() {
 }
 
 export default Surah;
+
+
+
+
+
+ 

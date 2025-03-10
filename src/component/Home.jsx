@@ -10,7 +10,7 @@ function Home() {
     navigate("/doa");
   }
   return (
-    <div className="w-screen h-screen flex flex-col max-w-3xl bg-blue-300 mx-auto">
+    <div className="w-screen h-screen flex flex-col max-w-3xl bg-blue-300 mx-auto shadow-2xl">
       <div className="text-4xl mx-auto pt-4 font-bold bg-gradient-to-r from bg-green-700 via-amber-500 to-green-800 text-transparent bg-clip-text font-sans">
             MuslimHub
         </div>

@@ -1,8 +1,9 @@
-import DoaHarian from "../component/doaHarian"
+import ListDoa from "../component/listDoa"
+
 
 function Doa() {
     return (
-        <DoaHarian />
+      <ListDoa/>
     )
 }
 

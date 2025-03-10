@@ -3,6 +3,7 @@ import Quran from "./pages/Quran"
 import HomePage from "./pages/HomePage"
 import Ayat from "./component/Ayat"
 import Doa from "./pages/Doa"
+import DoaHarian from "./component/doaHarian"
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="surah" element={<Quran />} />
         <Route path="surah/:nomor" element={<Ayat />} />
         <Route path="/doa" element={<Doa />} />
+        <Route path="/doa/:id" element={<DoaHarian />} />
       </Routes>
     </Router>
   )
