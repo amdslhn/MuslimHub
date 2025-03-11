@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AsmaulHusna() {
   const [AsmaulHusna, setAsmaulHusna] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://asmaul-husna-api.vercel.app/api/all`)
       .then((res) => res.json())
       .then((data) => setAsmaulHusna(data.data));
   }, []);
+
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg">
