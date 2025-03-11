@@ -2,39 +2,40 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function DoaList() {
-    const[doaHarian, setDoaHarian] = useState([]);
+    const [doaHarian, setDoaHarian] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch("https://open-api.my.id/api/doa")
-        .then((res) => res.json())
-        .then((data) => setDoaHarian(data));
+            .then((res) => res.json())
+            .then((data) => setDoaHarian(data));
     }, []);
 
-    const handleClick = (id)=>{
-        navigate(`${id}`)
-    }
+    const handleClick = (id) => {
+        navigate(`${id}`);
+    };
 
     return (
-        <div className="w-screen bg-slate-100 shadow-xl max-w-[1200px] m-auto flex flex-col">
-            <div className="fixed w-full max-w-[1200px] text-center bg-blue-500 rounded-b-3xl z-50">
-            <h1 className="text-slate-200 text-3xl font-bold py-3">
-                Pilih Doa
-            </h1>
+        <div className="w-full min-h-screen bg-slate-100 flex flex-col items-center p-4">
+            <div className="fixed w-full max-w-[1200px] text-center top-0 bg-blue-500 shadow-lg rounded-b-3xl z-50 p-4">
+                <h1 className="text-white text-3xl py-4 font-bold">Pilih Doa</h1>
             </div>
-            <div key={doaHarian.id}className="grid noto pt-16 pb-10 lg:pt-25 grid-cols-1 lg:grid-cols-3 gap-4 mx-auto ">
-            {doaHarian.map((doaHarian) => (
-                <div onClick={() =>handleClick(doaHarian.id)}className="border text-slate-800 hover:bg-white hover:scale-105 hover:cursor-pointer rounded-full border-blue-500 shadow-md flex">
-                    <div className="border border-blue-500 w-7 h-7 text-center pt-0.5 rotate-45 ml-3 my-auto">
-                        <p className="-rotate-45 font-semibold">{doaHarian.id}</p>
+            <div className="pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[1200px] mt-4">
+                {doaHarian.map((doa) => (
+                    <div
+                        key={doa.id}
+                        onClick={() => handleClick(doa.id)}
+                        className="bg-white border border-blue-500 shadow-lg rounded-xl p-4 flex items-center gap-4 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                        <div className="bg-blue-500 text-white w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                            {doa.id}
+                        </div>
+                        <p className="text-lg font-medium text-slate-800">{doa.judul}</p>
                     </div>
-                <p className="p-4 text-lg">
-                    {doaHarian.judul}
-                </p>
-                </div>
-            ))}
+                ))}
             </div>
         </div>
-    )
+    );
 }
+
 export default DoaList;

@@ -1,39 +1,38 @@
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/surah");
-  }
-  const handleClick2 = () => {
-    navigate("/doa");
-  }
-  const handleClick3 = () => {
-    navigate("/jwlsalat");
-  }
+
   return (
-    <div className="w-screen h-screen flex flex-col max-w-3xl bg-blue-300 mx-auto shadow-2xl">
-      <div className="text-4xl mx-auto pt-4 font-bold bg-gradient-to-r from bg-green-700 via-amber-500 to-green-800 text-transparent bg-clip-text font-sans">
-            MuslimHub
-        </div>
-      <div className="w-full mx-auto max-w-[600px]">
-        <img src="/image/Img1.png" alt="quran" />
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 bg-gradient-to-br from-blue-300 to-blue-500 shadow-xl">
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-gradient-to-r from-green-700 via-amber-500 to-green-800 bg-clip-text text-center">
+        MuslimHub
+      </h1>
+      <div className="w-full max-w-xs sm:max-w-md mt-6">
+        <img src="/image/Img1.png" alt="quran" className="rounded-xl w-full" />
       </div>
-        
-        <div className="text-2xl text-slate-800 font-bold mx-auto lg:-mt-20">
-        <div onClick= {handleClick} className="border-1 border-green-800 p-2 w-50 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer hover:scale-105 rounded-3xl text-center shadow-xl">
-          Baca Quran
-        </div>
-        <div onClick= {handleClick3} className="border-1 border-green-800 p-2 w-50 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer hover:scale-105 rounded-3xl text-center mt-2 shadow-xl">
-          Jadwal Salat
-        </div>
-        <div onClick= {handleClick2} className="border-1 border-green-800 p-2 w-50 bg-slate-200 hover:bg-slate-300 hover:cursor-pointer hover:scale-105 rounded-3xl text-center mt-2 shadow-xl">
-           Doa Harian
-        </div>
-        </div>
+      <div className="mt-8 grid grid-cols-2 gap-4 w-full max-w-md">
+        <button
+          onClick={() => navigate("/surah")}
+          className="p-4 sm:p-5 col-span-2 w-full bg-green-600 text-white text-lg sm:text-xl font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-green-700"
+        >
+          📖 Baca Quran
+        </button>
+        <button
+          onClick={() => navigate("/jadwalsalat")}
+          className="p-3 bg-yellow-500 text-white text-md sm:text-lg font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-yellow-600"
+        >
+          🕌 Jadwal Salat
+        </button>
+        <button
+          onClick={() => navigate("/doa")}
+          className="p-3 bg-indigo-500 text-white text-md sm:text-lg font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-indigo-600"
+        >
+          🤲 Doa Harian
+        </button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

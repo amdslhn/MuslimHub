@@ -15,18 +15,8 @@ function date() {
 
 function convertMonth(m) {
   return [
-    "Januari",
-    "Februari",
-    "Maret",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Agustus",
-    "September",
-    "Oktober",
-    "November",
-    "Desember",
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
   ][m - 1];
 }
 
@@ -40,9 +30,7 @@ function JadwalSalat() {
   const [currentMonth, setCurrentMonth] = useState(getMonth);
 
   useEffect(() => {
-    fetch(
-      "https://raw.githubusercontent.com/lakuapik/jadwalsholatorg/master/kota.json"
-    )
+    fetch("https://raw.githubusercontent.com/lakuapik/jadwalsholatorg/master/kota.json")
       .then((response) => response.json())
       .then((data) => setCity(data));
   }, []);
@@ -69,85 +57,74 @@ function JadwalSalat() {
   };
 
   return (
-    <div className="w-full h-full max-w-[1200px] mx-auto">
-      <div className="p-3 justify-end flex">
-        <div>
-          <label htmlFor="kota">Pilih Kota :</label>
-          <select
-            className="w-30"
-            name="kota"
-            id="kota"
-            value={selectedCity}
-            onChange={(e) => setSelectedCity(e.target.value)}
-          >
-            {city.map((kota, index) => (
-              <option key={index}>{kota}</option>
-            ))}
-          </select>
-        </div>
+    <div className="w-full max-w-3xl mx-auto p-5 bg-gray-100 rounded-lg shadow-lg">
+      <div className="flex justify-between items-center mb-4">
+        <label htmlFor="kota" className="font-semibold">Pilih Kota:</label>
+        <select
+          className="border rounded-lg p-2 shadow-md"
+          id="kota"
+          value={selectedCity}
+          onChange={(e) => setSelectedCity(e.target.value)}
+        >
+          {city.map((kota, index) => (
+            <option key={index}>{kota}</option>
+          ))}
+        </select>
       </div>
-      <div className="w-screen h-screen max-w-[1200px]">
-        <div className="text-center bg-blue-500 text-white mb-1 py-2 rounded-b-2xl">
-          <div className="flex justify-between">
-            <div className="hover:cursor-pointer pl-2">
-              <a className="" onClick={handlePreviousMonth}>
-                <p className="">⬅️lihat bulan sebelumnya</p>
-              </a>
-            </div>
-            <div>
-              <div className="hover:cursor-pointer px-2 border border-white rounded-full">
-                <a className="" onClick={handleCurrentMonth}>
-                  <p className="">lihat jadwal bulan ini</p>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div>Jadwal Sholat</div>
-
-          <div className="text-2xl font-bold">{selectedCity}</div>
-          <p>
-            {convertMonth(currentMonth)} <span>{currentYear}</span>
-          </p>
+      
+      <div className="text-center bg-blue-600 text-white py-3 rounded-lg shadow-md">
+        <div className="flex justify-between items-center -mt-3 mb-2">
+          <button
+            className="px-3 py-1 bg-white shadow-2xl text-blue-600 hover:cursor-pointer rounded-b-md hover:bg-blue-100"
+            onClick={handlePreviousMonth}
+          >
+            ⬅️ Bulan Sebelumnya
+          </button>
+          <button
+            className="px-3 py-1 bg-white shadow-2xl hover:cursor-pointer text-blue-600 rounded-b-md hover:bg-blue-100"
+            onClick={handleCurrentMonth}
+          >
+            📅 Bulan Ini
+          </button>
         </div>
-        <div className="overflow-x-auto">
-          <table className="w-full text-center table-fixed min-w-[600px] text-xs">
-            <thead>
-              <tr className="bg-blue-500 text-white">
-                <th className="border border-black p-1 w-20">Tanggal</th>
-                <th className="border border-black p-1 w-16">Imsak</th>
-                <th className="border border-black p-1 w-16">Subuh</th>
-                <th className="border border-black p-1 w-16">Terbit</th>
-                <th className="border border-black p-1 w-16">Dhuha</th>
-                <th className="border border-black p-1 w-16">Dzuhur</th>
-                <th className="border border-black p-1 w-16">Ashar</th>
-                <th className="border border-black p-1 w-16">Maghrib</th>
-                <th className="border border-black p-1 w-16">Isya</th>
+        <h2 className="text-xl font-bold">Jadwal Sholat - {selectedCity}</h2>
+        <p className="text-lg">{convertMonth(currentMonth)} {currentYear}</p>
+      </div>
+      
+      <div className="overflow-x-auto mt-4">
+        <table className="w-full text-center border-collapse">
+          <thead>
+            <tr className="bg-blue-500 text-white">
+              <th className="border border-black p-2">Tanggal</th>
+              <th className="border border-black p-2">Imsak</th>
+              <th className="border border-black p-2">Subuh</th>
+              <th className="border border-black p-2">Terbit</th>
+              <th className="border border-black p-2">Dhuha</th>
+              <th className="border border-black p-2">Dzuhur</th>
+              <th className="border border-black p-2">Ashar</th>
+              <th className="border border-black p-2">Maghrib</th>
+              <th className="border border-black p-2">Isya</th>
+            </tr>
+          </thead>
+          <tbody>
+            {JadwalSalat.map((jadwal) => (
+              <tr
+                key={jadwal.tanggal}
+                className={`hover:bg-gray-200 ${jadwal.tanggal === todayDate ? "bg-yellow-300 font-bold" : ""}`}
+              >
+                <td className="border p-2">{jadwal.tanggal}</td>
+                <td className="border p-2">{jadwal.imsyak}</td>
+                <td className="border p-2">{jadwal.shubuh}</td>
+                <td className="border p-2">{jadwal.terbit}</td>
+                <td className="border p-2">{jadwal.dhuha}</td>
+                <td className="border p-2">{jadwal.dzuhur}</td>
+                <td className="border p-2">{jadwal.ashr}</td>
+                <td className="border p-2">{jadwal.magrib}</td>
+                <td className="border p-2">{jadwal.isya}</td>
               </tr>
-            </thead>
-            <tbody>
-              {JadwalSalat.map((jadwal) => (
-                <tr
-                  key={jadwal.tanggal}
-                  className={`hover:bg-gray-100 ${
-                    jadwal.tanggal === todayDate
-                      ? "bg-yellow-300 font-bold"
-                      : ""
-                  }`}
-                >
-                  <td className="border p-1 ">{jadwal.tanggal}</td>
-                  <td className="border p-1 ">{jadwal.imsyak}</td>
-                  <td className="border p-1 ">{jadwal.shubuh}</td>
-                  <td className="border p-1 ">{jadwal.terbit}</td>
-                  <td className="border p-1 ">{jadwal.dhuha}</td>
-                  <td className="border p-1 ">{jadwal.dzuhur}</td>
-                  <td className="border p-1 ">{jadwal.ashr}</td>
-                  <td className="border p-1 ">{jadwal.magrib}</td>
-                  <td className="border p-1 ">{jadwal.isya}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
