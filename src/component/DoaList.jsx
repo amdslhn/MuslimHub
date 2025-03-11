@@ -17,8 +17,9 @@ function DoaList() {
 
     return (
         <div className="w-full min-h-screen bg-slate-100 flex flex-col items-center p-4">
-            <div className="fixed w-full max-w-[1200px] text-center top-0 bg-blue-500 shadow-lg rounded-b-3xl z-50 p-4">
-                <h1 className="text-white text-3xl py-4 font-bold">Pilih Doa</h1>
+            <div className="fixed w-full max-w-[1200px] text-center top-0 bg-blue-500 shadow-lg rounded-b-3xl z-50 pb-2">
+            <div onClick={() => navigate("/")} className="flex font-semibold pb-2 hover:cursor-pointer hover:text-slate-200">⬅️Back</div>
+                <h1 className="text-white text-3xl pb-6 font-bold">Pilih Doa</h1>
             </div>
             <div className="pt-20 pb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-[1200px] mt-4">
                 {doaHarian.map((doa) => (

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Qori from "./Qori";
+
 
 function Ayat() {
   const [surah, setSurah] = useState([]);
   const { nomor } = useParams();
   const [ayat, setAyat] = useState([]);
   const [qori, setQori] = useState("01");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://equran.id/api/v2/surat/${nomor}`)
@@ -31,7 +33,8 @@ function Ayat() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full lg:max-w-[850px] bg-gradient-to-r from-blue-600 to-indigo-500 text-white text-center py-5 shadow-xl rounded-b-2xl z-50">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full lg:max-w-[850px] bg-gradient-to-r from-blue-600 to-indigo-500 text-white text-center pb-3 shadow-xl rounded-b-2xl z-50">
+      <div onClick={() => navigate("/surah")} className="flex font-semibold pb-2 hover:cursor-pointer hover:text-slate-200">⬅️Back</div>
         <div className="flex items-center space-x-4 px-6">
           <div className="border-2 border-white w-14 h-14 flex items-center justify-center rounded-full text-xl font-bold bg-white text-blue-600">
             {surah.nomor}

@@ -32,7 +32,7 @@ function Home() {
         </button>
         <button
           onClick={() => navigate("/asmaulHusna")}
-          className="p-3 bg-indigo-500 text-white text-md sm:text-lg hover:cursor-pointer font-semibold rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-600 ring-2 ring-indigo-300 ring-opacity-50"
+          className="p-3 bg-indigo-500 text-white font text-md sm:text-lg hover:cursor-pointer font-semibold rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-600 ring-2 ring-indigo-300 ring-opacity-50"
         >
           ✨ Asmaul Husna
         </button>

@@ -23,10 +23,12 @@ function Surah() {
   const handleClick = (nomor) => {
     navigate(`/surah/${nomor}`);
   };
+  
 
   return (
     <div className="m-4 max-w-[1200px] mx-auto">
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-4 shadow-lg rounded-b-2xl z-50">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center pb-4 shadow-lg rounded-b-2xl z-50">
+      <div onClick={() => navigate("/")} className="flex font-semibold hover:cursor-pointer hover:text-slate-200">⬅️Back</div>
         <h1 className="text-3xl font-bold">Daftar Surah</h1>
       </div>
       <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const getDate = new Date();
 const getYear = getDate.getFullYear();
@@ -28,6 +29,7 @@ function JadwalSalat() {
   const [JadwalSalat, setJadwalSalat] = useState([]);
   const [currentYear, setCurrentYear] = useState(getYear);
   const [currentMonth, setCurrentMonth] = useState(getMonth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://raw.githubusercontent.com/lakuapik/jadwalsholatorg/master/kota.json")
@@ -58,6 +60,7 @@ function JadwalSalat() {
 
   return (
     <div className="w-full max-w-3xl mx-auto p-5 bg-gray-100 rounded-lg shadow-lg">
+      <div onClick={() => navigate("/")} className="flex font-semibold pb-2 hover:cursor-pointer hover:text-blue-700">⬅️Back</div>
       <div className="flex justify-between items-center mb-4">
         <label htmlFor="kota" className="font-semibold">Pilih Kota:</label>
         <select

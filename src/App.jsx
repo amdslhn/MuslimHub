@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="surah" element={<Quran />} />
+        <Route path="/surah" element={<Quran />} />
         <Route path="surah/:nomor" element={<Ayat />} />
         <Route path="/doa" element={<Doa />} />
         <Route path="/doa/:id" element={<DoaHarian />} />
