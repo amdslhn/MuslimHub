@@ -11,24 +11,30 @@ function Home() {
       <div className="w-full max-w-xs sm:max-w-md mt-6">
         <img src="/image/Img1.png" alt="quran" className="rounded-xl w-full" />
       </div>
-      <div className="mt-8 grid grid-cols-2 gap-4 w-full max-w-md">
+      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-md">
         <button
           onClick={() => navigate("/surah")}
-          className="p-4 sm:p-5 col-span-2 w-full bg-green-600 text-white text-lg sm:text-xl font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-green-700"
+          className="p-3 bg-green-600 text-white text-md sm:text-lg font-semibold rounded-xl hover:cursor-pointer shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-green-700 ring-2 ring-green-400 ring-opacity-50"
         >
           📖 Baca Quran
         </button>
         <button
           onClick={() => navigate("/jadwalsalat")}
-          className="p-3 bg-yellow-500 text-white text-md sm:text-lg font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-yellow-600"
+          className="p-3 bg-yellow-500 text-white text-md sm:text-lg font-semibold hover:cursor-pointer rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-yellow-600 ring-2 ring-yellow-300 ring-opacity-50"
         >
           🕌 Jadwal Salat
         </button>
         <button
           onClick={() => navigate("/doa")}
-          className="p-3 bg-indigo-500 text-white text-md sm:text-lg font-semibold rounded-xl shadow-md transition-transform transform hover:scale-105 hover:bg-indigo-600"
+          className="p-3 bg-indigo-500 text-white text-md sm:text-lg font-semibold hover:cursor-pointer rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-600 ring-2 ring-indigo-300 ring-opacity-50"
         >
           🤲 Doa Harian
+        </button>
+        <button
+          onClick={() => navigate("/asmaulHusna")}
+          className="p-3 bg-indigo-500 text-white text-md sm:text-lg hover:cursor-pointer font-semibold rounded-xl shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-indigo-600 ring-2 ring-indigo-300 ring-opacity-50"
+        >
+          ✨ Asmaul Husna
         </button>
       </div>
     </div>

@@ -75,13 +75,13 @@ function JadwalSalat() {
       <div className="text-center bg-blue-600 text-white py-3 rounded-lg shadow-md">
         <div className="flex justify-between items-center -mt-3 mb-2">
           <button
-            className="px-3 py-1 bg-white shadow-2xl text-blue-600 hover:cursor-pointer rounded-b-md hover:bg-blue-100"
+            className="px-3 py-1 bg-white shadow-2xl font-semibold text-blue-600 hover:cursor-pointer rounded-b-md hover:bg-blue-100"
             onClick={handlePreviousMonth}
           >
             ⬅️ Bulan Sebelumnya
           </button>
           <button
-            className="px-3 py-1 bg-white shadow-2xl hover:cursor-pointer text-blue-600 rounded-b-md hover:bg-blue-100"
+            className="px-3 py-1 bg-white shadow-2xl font-semibold hover:cursor-pointer text-blue-600 rounded-b-md hover:bg-blue-100"
             onClick={handleCurrentMonth}
           >
             📅 Bulan Ini

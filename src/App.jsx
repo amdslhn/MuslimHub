@@ -5,6 +5,7 @@ import Ayat from "./component/Ayat"
 import Doa from "./pages/Doa"
 import DoaHarian from "./component/doaHarian"
 import Salat from "./pages/Salat"
+import AsmaulHusnaPage from "./pages/AsmaulHusnaPage"
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/doa" element={<Doa />} />
         <Route path="/doa/:id" element={<DoaHarian />} />
         <Route path="/jadwalsalat" element={<Salat />} />
+        <Route path="/asmaulHusna" element={<AsmaulHusnaPage />} />
       </Routes>
     </Router>
   )
