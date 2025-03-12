@@ -5,30 +5,41 @@ function DoaHarian() {
   const [doa, setDoa] = useState(1);
   const { id } = useParams();
   const navigate = useNavigate();
+
   useEffect(() => {
     fetch(`https://open-api.my.id/api/doa/${id}`)
       .then((res) => res.json())
       .then((data) => setDoa(data));
   }, [id]);
+
   return (
-    <div className="w-screen min-h-screen max-w-3xl mx-auto justify-between flex flex-col sm:h-full lg:h-screen ">
-      <div className="fixed w-full max-w-3xl text-center bg-blue-500 rounded-b-3xl z-50">
-      <div onClick={() => navigate("/doa")} className="flex font-semibold pb-2 hover:cursor-pointer hover:text-slate-200">⬅️Back</div>
-        <div className="pl-3 text-gray-200 text-3xl flex flex-row gap-3 font-bold justify-center pb-5">
-            <div className="-my-2">
-          <div className="border-2 w-12 h-12 pt-0.5 border-slate-100 rounded-full">
-            <p>{doa.id}</p>
-            </div>
+    <div className="w-full min-h-screen max-w-3xl mx-auto px-4 pt-28 pb-10">
+      {/* Header */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-4 shadow-lg rounded-b-3xl z-50">
+        <div 
+          onClick={() => navigate("/doa")} 
+          className="flex items-center justify-center gap-2 text-lg font-semibold cursor-pointer hover:text-gray-200 transition"
+        >
+          <span className="text-xl">⬅️</span> <span>Kembali</span>
+        </div>
+        <div className="mt-3 flex items-center justify-center gap-4">
+          <div className="border-2 border-white w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold bg-white text-blue-700 shadow-md">
+            {doa.id}
           </div>
-          <div>{doa.judul}</div>
+          <h1 className="text-2xl font-extrabold tracking-wide">{doa.judul}</h1>
         </div>
       </div>
-      <div className="p-3 bg-slate-100 shadow-xl rounded-b-4xl">
-        <div className="text-4xl/15 noto pt-30 text-right">{doa.arab}</div>
-        <div className="text-xl mt-4 noto italic">{doa.latin}</div>
-        <div className="text-xl justify-start mt-4 noto">{doa.terjemah}</div>
-    </div>
+
+      {/* Konten Doa */}
+      <div className="mt-6 bg-white p-6 rounded-2xl shadow-xl space-y-6">
+        <div className="text-4xl leading-relaxed text-right noto text-gray-900">
+          {doa.arab}
+        </div>
+        <div className="text-lg italic text-gray-700">{doa.latin}</div>
+        <div className="text-lg text-gray-800">{doa.terjemah}</div>
+      </div>
     </div>
   );
 }
+
 export default DoaHarian;

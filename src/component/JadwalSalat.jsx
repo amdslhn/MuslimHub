@@ -16,7 +16,7 @@ function date() {
 
 function convertMonth(m) {
   return [
-    "Januari", "Februari", "Maret", "April", "Mei", "Juni", 
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
     "Juli", "Agustus", "September", "Oktober", "November", "Desember"
   ][m - 1];
 }
@@ -53,67 +53,74 @@ function JadwalSalat() {
       setCurrentMonth((prevMonth) => prevMonth - 1);
     }
   };
+
   const handleCurrentMonth = () => {
     setCurrentMonth(getMonth);
     setCurrentYear(getYear);
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-5 bg-gray-100 rounded-lg shadow-lg">
-      <div onClick={() => navigate("/")} className="flex font-semibold pb-2 hover:cursor-pointer hover:text-blue-700">⬅️Back</div>
-      <div className="flex justify-between items-center mb-4">
-        <label htmlFor="kota" className="font-semibold">Pilih Kota:</label>
-        <select
-          className="border rounded-lg p-2 shadow-md"
-          id="kota"
-          value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
-        >
-          {city.map((kota, index) => (
-            <option key={index}>{kota}</option>
-          ))}
-        </select>
+    <div className="w-full max-w-4xl mx-auto p-6 bg-white rounded-2xl shadow-2xl mt-8">
+      <div 
+        onClick={() => navigate("/")} 
+        className="text-blue-700 hover:text-blue-900 font-semibold mb-4 flex items-center gap-2 cursor-pointer w-fit"
+      >
+        <span className="text-xl">⬅️</span> <span>Kembali</span>
       </div>
-      
-      <div className="text-center bg-blue-600 text-white py-3 rounded-lg shadow-md">
-        <div className="flex justify-between items-center -mt-3 mb-2">
+
+      <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
+        <div className="flex items-center gap-3">
+          <label htmlFor="kota" className="font-semibold text-gray-700">Pilih Kota:</label>
+          <select
+            className="border border-gray-300 rounded-lg px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            id="kota"
+            value={selectedCity}
+            onChange={(e) => setSelectedCity(e.target.value)}
+          >
+            {city.map((kota, index) => (
+              <option key={index}>{kota}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex gap-3">
           <button
-            className="px-3 py-1 bg-white shadow-2xl font-semibold text-blue-600 hover:cursor-pointer rounded-b-md hover:bg-blue-100"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
             onClick={handlePreviousMonth}
           >
             ⬅️ Bulan Sebelumnya
           </button>
           <button
-            className="px-3 py-1 bg-white shadow-2xl font-semibold hover:cursor-pointer text-blue-600 rounded-b-md hover:bg-blue-100"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition"
             onClick={handleCurrentMonth}
           >
             📅 Bulan Ini
           </button>
         </div>
-        <h2 className="text-xl font-bold">Jadwal Sholat - {selectedCity}</h2>
+      </div>
+
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-4 rounded-lg mb-4 shadow-lg">
+        <h2 className="text-2xl font-bold">Jadwal Sholat - {selectedCity}</h2>
         <p className="text-lg">{convertMonth(currentMonth)} {currentYear}</p>
       </div>
-      
-      <div className="overflow-x-auto mt-4">
-        <table className="w-full text-center border-collapse">
-          <thead>
-            <tr className="bg-blue-500 text-white">
-              <th className="border border-black p-2">Tanggal</th>
-              <th className="border border-black p-2">Imsak</th>
-              <th className="border border-black p-2">Subuh</th>
-              <th className="border border-black p-2">Terbit</th>
-              <th className="border border-black p-2">Dhuha</th>
-              <th className="border border-black p-2">Dzuhur</th>
-              <th className="border border-black p-2">Ashar</th>
-              <th className="border border-black p-2">Maghrib</th>
-              <th className="border border-black p-2">Isya</th>
+
+      <div className="overflow-x-auto">
+        <table className="w-full table-auto text-sm md:text-base border border-gray-300 shadow-sm overflow-hidden">
+          <thead className="bg-blue-500 text-white">
+            <tr>
+              {["Tanggal", "Imsak", "Subuh", "Terbit", "Dhuha", "Dzuhur", "Ashar", "Maghrib", "Isya"].map((item, idx) => (
+                <th key={idx} className="px-3 py-2 border border-black whitespace-nowrap">{item}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
             {JadwalSalat.map((jadwal) => (
               <tr
                 key={jadwal.tanggal}
-                className={`hover:bg-gray-200 ${jadwal.tanggal === todayDate ? "bg-yellow-300 font-bold" : ""}`}
+                className={`transition-all duration-200 ${
+                  jadwal.tanggal === todayDate
+                    ? "bg-yellow-200 font-semibold text-gray-900"
+                    : "hover:bg-gray-100"
+                }`}
               >
                 <td className="border p-2">{jadwal.tanggal}</td>
                 <td className="border p-2">{jadwal.imsyak}</td>
