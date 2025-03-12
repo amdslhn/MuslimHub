@@ -104,7 +104,7 @@ function JadwalSalat() {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full table-auto text-sm md:text-base border border-gray-300 shadow-sm overflow-hidden">
+        <table className="w-full table-auto text-sm md:text-base text-center border-gray-300 shadow-sm overflow-hidden">
           <thead className="bg-blue-500 text-white">
             <tr>
               {["Tanggal", "Imsak", "Subuh", "Terbit", "Dhuha", "Dzuhur", "Ashar", "Maghrib", "Isya"].map((item, idx) => (
